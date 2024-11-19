@@ -1,0 +1,113 @@
+/* Styling for the background video */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* Transparent container */
+.package-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Package box styling */
+.package-box {
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white; /* Make text white for better contrast */
+}
+
+/* Custom colors for each package */
+.package-box.box-1 {
+    background-color: rgba(117, 175, 236, 0.8); /* Blue */
+}
+
+.package-box.box-2 {
+    background-color: rgba(11, 230, 62, 0.8); /* Green */
+}
+
+.package-box.box-3 {
+    background-color: rgba(188, 235, 20, 0.8); /* Red */
+}
+
+.package-box input[type="radio"] {
+    margin-right: 15px;
+}
+
+.package-box label h3 {
+    margin: 0;
+    color: #333;
+}
+
+.package-box label p {
+    margin: 5px 0 0 0;
+    color: #555;
+}
+
+button.details-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.details-button:hover {
+    background-color: #005f8a;
+}
+
+/* Hidden details section */
+.details-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: rgba(240, 240, 240, 0.95);
+    margin-top: 10px;
+    padding: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Show the details when the class 'show-details' is added */
+.details-box.show-details {
+    max-height: 300px; /* Adjust based on content size */
+    padding: 10px;
+    transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #005f8a;
+}

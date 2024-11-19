@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyago.Bd</title>
+    <link rel="stylesheet" href="user_login_style.css">
+</head>
+<body>
+    <!--Video Background-->
+    <video autoplay muted loop id="background-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+    <img src="Home.png" alt="Icon" class="top-right-icon">
+    <div class="container">
+        <!-- Login Form Section -->
+        <div class="login-section">
+            <form id="loginForm">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" placeholder="Enter Username" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter Password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="sign-up-link">Register</a></p>
+            </form>
+        </div>
+
+        <!-- Sign-up Form Section (hidden by default) -->
+        <div class="signup-section" style="display: none;">
+            <form id="signupForm">
+                <h2>Register</h2>
+                <div class="input-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" placeholder="Enter Username" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter Email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Enter Password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit">Submit</button>
+                <p>Already have an account? <a href="#" id="go-to-login">Login</a></p>
+            </form>
+        </div>
+
+        <!-- Welcome Back Section -->
+        <div class="welcome-section">
+            <img src="logo.png" alt="Logo" class="welcome-logo">
+            <h2>WELCOME BACK!</h2>
+            <p>Fill up the required area more carefully</p>
+        </div>
+    </div>
+
+   <script>
+    // Helper function to generate a unique user ID
+    function generateUserId() {
+        return 'USER-' + Math.floor(Math.random() * 1000000);
+    }
+
+    // Get existing users from localStorage or create an empty array
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Signup form submission
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form data
+        const username = document.getElementById('signup-username').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+
+        // Check if the username already exists
+        if (users.some(user => user.username === username)) {
+            alert('Username already taken. Please choose another one.');
+            return;
+        }
+
+        // Generate user ID and create a new user object
+        const newUser = {
+            userId: generateUserId(),
+            username: username,
+            email: email,
+            password: password
+        };
+
+        // Add the new user to the users array
+        users.push(newUser);
+
+        // Save the updated users array to localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // Redirect to login page
+        alert('Registration successful! Please log in.');
+        window.location.href = 'index_2.html'; // You can also automatically switch to log in form
+    });
+
+    // Login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get login credentials
+        const loginUsername = document.getElementById('login-username').value;
+        const loginPassword = document.getElementById('login-password').value;
+
+        // Find the user with the matching username and password
+        const loggedInUser = users.find(user => user.username === loginUsername && user.password === loginPassword);
+
+        if (loggedInUser) {
+            // Save the logged-in user to localStorage
+            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+
+            // Redirect to the user profile page
+            window.location.href = 'user.html';
+        } else {
+            alert('Invalid username or password.');
+        }
+    });
+
+    // Toggle between login and signup forms
+    const signUpLink = document.getElementById('sign-up-link');
+    const goToLoginLink = document.getElementById('go-to-login');
+    const container = document.querySelector('.container');
+    const loginSection = document.querySelector('.login-section');
+    const signupSection = document.querySelector('.signup-section');
+
+    signUpLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginSection.style.display = 'none';
+        signupSection.style.display = 'block';
+    });
+
+    goToLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        signupSection.style.display = 'none';
+        loginSection.style.display = 'block';
+    });
+   </script>
+</body>
+</html>

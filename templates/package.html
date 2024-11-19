@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Packages</title>
+    <link rel="stylesheet" href="package_style.css">
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <!-- Transparent Container for Tour Packages -->
+    <div class="package-container">
+        <h2>Select Your Tour Package</h2>
+        <form id="packageForm" action="" method="get">
+            
+            <!-- First Package Box -->
+            <div class="package-box box-1">
+                <input type="radio" id="package1" name="package" value="Package 1" required>
+                <label for="package1">Select this</label>
+                    <h3>Luxury Beach Getaway</h3>
+                    <p>Enjoy a 5-day stay at a luxury beach resort with all-inclusive services.</p>
+                <button type="button" class="details-button">Details</button>
+                
+                <!-- Details Section (hidden by default) -->
+                <div class="details-box">
+                    <p><strong>Name:</strong> Luxury Beach Getaway</p>
+                    <p><strong>Description:</strong> A relaxing escape to a serene beachfront with exclusive luxury services.</p>
+                    <p><strong>Speciality:</strong> Private beach, all-inclusive services, luxury spa.</p>
+                    <p><strong>Famous Food:</strong> Seafood buffet, tropical drinks.</p>
+                    <p><strong>Package Price:</strong> $1,500</p>
+                </div>
+            </div>
+            
+            <!-- Second Package Box -->
+            <div class="package-box box-2">
+                <input type="radio" id="package2" name="package" value="Package 2">
+                <label for="package2">select here</label>
+                    <h3>Cultural Heritage Tour</h3>
+                    <p>Explore the rich cultural heritage of Bangladesh with a 7-day guided tour.</p>
+                <button type="button" class="details-button">Details</button>
+
+                <!-- Details Section (hidden by default) -->
+                <div class="details-box box-2">
+                    <p><strong>Name:</strong> Cultural Heritage Tour</p>
+                    <p><strong>Description:</strong> An immersive cultural experience exploring ancient traditions and landmarks.</p>
+                    <p><strong>Speciality:</strong> Historical landmarks, guided tours.</p>
+                    <p><strong>Famous Food:</strong> Traditional Bangladeshi cuisine.</p>
+                    <p><strong>Package Price:</strong> $1,200</p>
+                </div>
+            </div>
+
+            <!-- Third Package Box -->
+            <div class="package-box box-3">
+                <input type="radio" id="package3" name="package" value="Package 3">
+                <label for="package3">select here</label>
+                    <h3>Mountain Adventure</h3>
+                    <p>Experience a thrilling 5-day mountain adventure with trekking and camping.</p>
+                <button type="button" class="details-button">Details</button>
+
+                <!-- Details Section (hidden by default) -->
+                <div class="details-box">
+                    <p><strong>Name:</strong> Mountain Adventure</p>
+                    <p><strong>Description:</strong> An adrenaline-packed adventure in the mountains, including trekking and camping.</p>
+                    <p><strong>Speciality:</strong> Trekking, camping, guided mountain tours.</p>
+                    <p><strong>Famous Food:</strong> Campfire meals, energy bars.</p>
+                    <p><strong>Package Price:</strong> $1,000</p>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to toggle the details section
+        const detailsButtons = document.querySelectorAll('.details-button');
+
+        detailsButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const detailsBox = this.nextElementSibling; // The details box right after the button
+                detailsBox.classList.toggle('show-details');
+            });
+        });
+    </script>
+</body>
+</html>

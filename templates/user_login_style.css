@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Ensure the video is behind the content */
+    object-fit: cover; /* Make sure the video covers the entire screen */
+    opacity: 0.7; /* Optional: Lower the opacity to make the content more readable */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+.top-right-icon {
+    position: fixed;
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    width: 40px; /* Adjust the size of the icon */
+    height: 40px; /* Maintain aspect ratio */
+    z-index: 999; /* Ensure it appears above other content */
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+}
+
+.top-right-icon:hover {
+    opacity: 0.8; /* Add a hover effect */
+}
+
+.container {
+    width: 700px;
+    height: 400px; /* Keep the height fixed */
+    display: flex;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 1);
+    border-radius: 15px;
+    background-color: transparent;
+    overflow: hidden;
+    position:relative;
+}
+
+.login-section, .signup-section {
+    width: 50%;
+    padding: 40px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto; /* Enables scrolling */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+.login-section::-webkit-scrollbar, .signup-section::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}
+
+
+
+h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+p a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.welcome-section {
+    width: 50%;
+    background-color: black;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 15% 100%);
+}
+
+/* Style for the GIF logo */
+.welcome-logo {
+    width: 200px; /* Adjust the width to fit your layout */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Add some space below the logo */
+}
+
+
+.welcome-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.welcome-section p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* Fade animations */
+.fade-in {
+    animation: fadeIn 0.5s forwards; /* Fade-in animation with 0.5s duration */
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards; /* Fade-out animation with 0.5s duration */
+}
+
+/* Fade animations */
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for fade-out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
